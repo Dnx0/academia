@@ -1,0 +1,42 @@
+/* Não vamos mostrar menu hamburguer quando tiver no tamanho normal (Desktop) */
+.hamburger {
+    display: none;
+}
+
+#mostrar-menu {
+    display: none;
+}
+
+
+@media (max-width: 627px) {
+    .hamburger {
+        display: block;
+        margin: 0.5em 3em;
+        cursor: pointer;
+    }
+
+    ul {
+        display: none;
+   }
+
+   .menu-mobile {
+   	display: flex;
+   	justify-content:space-between; 
+   	width: 100%;
+
+   }
+
+   .social {
+   	width: auto!important;
+   	border: none!important;
+   }
+
+input[type=checkbox]:checked + ul {
+	display: block;
+}
+
+ul a li:hover{
+	background-color: #C6D07D;
+}
+
+}

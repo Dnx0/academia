@@ -1,0 +1,700 @@
+/* HACK DE INÍCIO DE CSS */
+html {
+    /* Box Model Fix (arrumar)
+            Este ajuste permite que se adicione padding e border sem alterar a altura (height) e largura (width) do elemento */
+    box-sizing: border-box;
+}
+
+/* Esse seletor (*) pega TODAS as tags do HTML. */
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+* {
+    /* Nesse caso, estamos zerando a margin e o padding. */
+    margin: 0;
+    padding: 0;
+}
+
+/* HACK DE INÍCIO DE CSS */
+:root {
+    --cor-padrao: #c1d72d;
+    --cor-padrao-transp: #c1d72d66;
+}
+
+body {
+    background-color: #e4e4e4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* altera o tipo da fonte */
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+}
+
+.container-geral {
+    max-width: 80vw;
+}
+
+/* <=== Área do header ===> */
+
+header {
+    /* Padding com 2 valores, significa que o 1º valor é CIMA E BAIXO. O 2º valor é ESQUERDA E DIREITA*/
+    /*padding: 25px 0;*/
+    /* cor de fundo */
+    background-color: #fff;
+    /* margem INTERNA de um elemento (à esquerda) */
+    padding-left: 2.5em;
+    /* atributo largura */
+    min-height: 16vh;
+
+    display: flex;
+    align-items: center;
+
+    /* centralizar página */
+    /* margin: 0 auto; */
+}
+
+header img {
+    /* atributo altura */
+    height: 6.5em;
+    animation-name: logo;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes logo {
+    /* Animação From To, deslocar e girar o logo*/
+    from{
+        transform: translateX(40vw) rotate(0);
+    }
+    to {
+        transform: translateX(0px)  rotate(720deg);;
+       rotate(720deg);
+
+   /* 0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.25);
+
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.25);
+
+    }
+
+    100% {
+        transform: scale(1);
+
+    */
+    }
+
+}
+
+/* <=== Área do nav ===> */
+
+nav {
+    min-height: 5vh;
+    background-color: #c1d72d;
+    /* centralizar página */
+    /* margin: 0 auto; */
+    /* altera o display para flexbox */
+    display: flex;
+
+    /* é a configuração padrão do flex. Serve para colocar os ITEMS em linha */
+    flex-direction: row;
+
+    /* no flex-direction ROW, é o alinhamento horizontal dos items do container */
+    justify-content: space-between;
+
+    /* no flex-direction ROW, é o alinhamento vertical dos itens do container */
+    align-items: center;
+}
+
+ul {
+    padding-left: 2.5em;
+}
+
+li {
+    /* tira as "bolinhas" da nossa lista não-ordenada */
+    list-style-type: none;
+    /* altera o display, ou seja, a visualização em página do elemento. Nesse caso, colocamos elemento linha (inline) */
+    display: inline;
+
+    /* altera o tamanho da fonte */
+    font-size: 1.1em;
+    padding-right: 5px;
+    padding-left: 5px;
+
+    /* cria uma borda para o elemento. Nesse caso, borda esquerda (left) */
+    border-left: 2px solid white;
+}
+
+.sem-borda {
+    /* remove as bordas de um elemento */
+    border: none;
+}
+
+/* Esse seletor de elemento é mais específico e seleciona os links dentro das uls que pertecem à nav */
+nav ul a {
+    /* tira o sublinhado do link */
+    text-decoration: none;
+    /* para alterar a cor do texto */
+    color: black;
+
+
+}
+
+ul a {
+    transition-duration: 0.5s;
+    transition-property: font-size background-color;
+    transition-timing-function: ease-out;
+}
+
+ul a:hover {
+    font-size: 1.2em;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+nav div {
+    padding-right: 40px;
+}
+
+.img-social {
+    height: 35px;
+    padding-right: 5px;
+    /* utilizado para deixar os elementos translucidos. quanto menos % de opacidade, mais transparente. */
+    opacity: 65%;
+    transition-property: opacity transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+
+}
+
+.img-social:hover {
+    opacity: 100%;
+    transform: scale(1.25);
+
+}
+
+nav div img:hover {
+    opacity: 100%;
+}
+
+/* <=== Área do carrossel ===> */
+article img {
+    width: 100%;
+    height: auto;
+
+    .container-slider {
+        margin-bottom: -4px;
+    }
+}
+
+/* <=== Área das seções ===> */
+
+.container-grid {
+    display: grid;
+    /*grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);*/
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* max-width: 900px; */
+    background: white;
+    padding: 1.5em;
+}
+
+.container-grid section {
+    padding: 2.5em;
+}
+
+section h2 {
+    color: white;
+    background: #999;
+    text-align: center;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+section p {
+    text-align: justify;
+}
+
+section a {
+    color: black;
+    font-weight: bold;
+}
+/* <=== Seção Localização ==> */
+
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute; }
+
+/* <=== Seção Formulário ===> */
+
+.container-form {
+    background: white;
+}
+.titulo-mapa,
+.titulo-form {
+    text-align: center;
+    font-size: 2.5em;
+    padding: 0.75em 0;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+.conteudo-form {
+
+    display: grid;
+    grid-template-columns: repeat (9, 1fr);
+    grid-template-rows: repeat(5, 3.4375em) 9.375em 4.375em;
+}
+
+.nome {
+    grid-row-start: 1;
+    grid-column-start: 2;
+    grid-column-end: 9;
+
+}
+
+.sobrenome {
+    grid-row-start: 2;
+    grid-column-start: 2;
+    grid-column-end: 9;
+}
+
+.data {
+    grid-row-start: 3;
+    grid-column: 2 / 4;
+}
+
+.peso {
+    grid-row-start: 3;
+    grid-column: 4 / span 3;
+    margin: 0 2em;
+
+}
+
+.altura {
+    grid-row-start: 3;
+    grid-column: 7 / 9;
+}
+
+.email {
+    grid-row-start: 4;
+    grid-column-start: 2;
+    grid-column-end: 9;
+}
+
+.container-radio {
+    grid-row: 5;
+    grid-column: 2 / span 7;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+}
+
+.container-esportes {
+    grid-row: 6;
+    grid-column: 2 / span 7;
+    display: grid;
+    grid-template-columns: ;
+    grid-template-rows: ;
+}
+
+.container-submit {
+    grid-row: 7;
+    grid-column: 4 / span 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Seção de FORMATAÇÃO DO FORMULÁRIO */
+
+.campo {
+    margin-bottom: 1em;
+    border: 2px solid var(--cor-padrao);
+    position: relative;
+}
+
+.icone-campo {
+    position: absolute;
+    color: var(--cor-padrao);
+    top: 0.2em;
+    left: 0.2em;
+
+}
+
+i {
+    font-size: 1.3em;
+    top: 0.3em !important;
+    left: 0.3em !important
+}
+
+.material-icons {
+    color: var(--cor-padrao);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    border: none;
+    outline: 0;
+    line-height: 2.5em;
+    padding-left: 3em;
+}
+
+.container-tamanho {
+    display: inline;
+    height: 2.5em;
+    width: 2.5em;
+
+
+}
+
+.container-radio {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border: 2px solid var(--cor-padrao);
+    margin-bottom: 1em;
+}
+
+/* Ínicio-Seção de Estilização dos rádios buttons */
+
+.container-radio input[type="radio"],
+.container-esportes input[type="radio"] {
+    height: 0;
+    widows: 0;
+    opacity: 0;
+}
+
+.container-radio input[type="radio"]+label,
+.container-esportes input[type="radio"]+label {
+    position: relative;
+    cursor: pointer;
+    padding-left: 1.25em;
+}
+
+.container-radio input[type="radio"]+label::before,
+.container-esportes input[type="radio"]+label::before {
+    content: "";
+    position: absolute;
+    top: 0.2em;
+    left: -0.2em;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: var(--cor-padrao-transp);
+    border: 2px solid #88888866;
+
+}
+
+.container-radio input[type="radio"]:checked+label::before,
+.container-esportes input[type="radio"]:checked+label::before {
+    background: var(--cor-padrao);
+    border: 2px solid #888888;
+
+}
+
+/* Fim da estilização do Botão */
+
+/* <== Grid container-esporte==> */
+
+.container-esportes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    margin-bottom: 1em;
+    border: 2px solid var(--cor-padrao);
+
+}
+
+.titulo-esportes {
+    grid-column: 2 / span 2;
+    grid-row-start: 1;
+    text-align: center;
+}
+
+.confirmar-esportes {
+    grid-column: 2 / span 2;
+    grid-row-start: 2;
+    text-align: center;
+}
+
+.quais {
+    grid-column: 2 / span 2;
+    grid-row-start: 3;
+    text-align: center;
+}
+
+.musculacao {
+
+    grid-row-start: 4;
+
+}
+
+.fultebol {
+    grid-row-start: 5;
+
+}
+
+.volei {
+    grid-column: 2;
+    grid-row-start: 4;
+
+}
+
+.basquete {
+    grid-column: 2;
+    grid-row-start: 5;
+
+}
+
+.tenis {
+    grid-column: 3;
+    grid-row-start: 4;
+
+}
+
+.corrida {
+    grid-column: 3;
+    grid-row-start: 5;
+
+}
+
+.ciclismo {
+    grid-column: 4;
+    grid-row-start: 4;
+
+}
+
+.outros {
+    grid-column: 4;
+    grid-row-start: 5;
+
+}
+
+/* <==Fim do Grid ==> */
+
+
+
+/* <==Começo da Estilização das caixinhas==> */
+
+
+.container-esportes input[type="checkbox"] {
+    height: 0;
+    widows: 0;
+    opacity: 0;
+}
+
+.container-esportes input[type="checkbox"]+label {
+    position: relative;
+    cursor: pointer;
+    padding-left: 1.25em;
+}
+
+.container-esportes input[type="checkbox"]+label::before {
+    content: "";
+    position: absolute;
+    top: 0.2em;
+    left: -0.2em;
+    height: 15px;
+    width: 15px;
+    background: var(--cor-padrao-transp);
+    border: 2px solid #88888866;
+}
+
+.container-esportes input[type="checkbox"]:checked+label::before {
+    background: var(--cor-padrao);
+    border: 2px solid #888888;
+}
+
+/* fim das caixinhas (checkbox) */
+
+
+.wrap-masculino {
+    grid-column: 3 / span 2;
+}
+
+.wrap-feminino {
+    grid-column: 5 / span 2;
+}
+
+.text-genero {
+    line-height: 2.5em;
+    padding-left: 0.5em;
+}
+
+.wrap-masculino label,
+.wrap-masculino input,
+.wrap-feminino label,
+.wrap-feminino input,
+.wrap-outro label,
+.wrap-outro input {
+    line-height: 2.5em;
+}
+
+.radio-icons span {
+    line-height: 1.5em;
+}
+
+/* Botão enviar */
+
+.botao-enviar {
+    box-shadow: inset 0px 1px 0px 0px #a4e271;
+    background: linear-gradient(to bottom, #bfd52c 5%, #a5b828 100%);
+    background-color: #bfd52c;
+    border-radius: 10px;
+    border: 1px solid #74b807;
+    display: inline-block;
+    cursor: pointer;
+    color: #000000;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #528009;
+}
+
+.botao-enviar:hover {
+    background: linear-gradient(to bottom, #a5b828 5%, #bfd52c 100%);
+    background-color: #a5b828;
+}
+
+.botao-enviar:active {
+    position: relative;
+    top: 1px;
+}
+
+
+/* <=== Área do footer ===> */
+
+footer {
+    min-height: 9vh;
+    background: var(--cor-padrao);
+    padding: 1em 0;
+    display: flex;
+    flex-direction: column;
+}
+
+footer ul a {
+    /* tira o sublinhado do link */
+    text-decoration: none;
+    /* para alterar a cor do texto */
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+footer p {
+    align-self: center;
+    padding-top: 1em;
+}
+
+/* <=== Media Querie - Responsivo ===> */
+
+/* Mexendo na altura */
+@media (max-height: 770px) {
+    header {
+        min-height: 20vh;
+    }
+}
+
+/* Mexendo na largura */
+@media (max-width: 620px) {
+    .radio-icons .material-icons {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 864px) {
+    ul {
+        padding-left: 0;
+    }
+
+    nav div {
+        padding-right: 0;
+    }
+
+    .container-grid section {
+        padding: 2em;
+    }
+}
+
+@media (max-width: 740px) {
+    .container-geral {
+        max-width: 100vw;
+    }
+}
+
+@media (max-width: 627px) {
+    header {
+        justify-content: center;
+        padding-left: 0;
+    }
+
+    li {
+        display: block;
+        border-bottom: 2px solid white;
+        border-left: none;
+        padding: 0.5em 0;
+    }
+
+    ul {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .sem-borda {
+        border-bottom: 2px solid white;
+    }
+
+    nav {
+        justify-content: center;
+        flex-direction: column-reverse;
+    }
+
+    /* <div class="social"> */
+    div.social {
+        padding: 0.5em 0;
+        border-bottom: 2px solid white;
+        width: 100%;
+        text-align: center;
+    }
+
+    footer {
+        padding-top: 0;
+    }
+
+}
+
+/* <=== Media Querie - Responsivo ===> */
